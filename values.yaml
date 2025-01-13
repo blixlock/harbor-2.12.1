@@ -1,14 +1,14 @@
 expose:
   # Set how to expose the service. Set the type as "ingress", "clusterIP", "nodePort" or "loadBalancer"
   # and fill the information in the corresponding section
-  type: ingress
+  type: nodePort
   tls:
     # Enable TLS or not.
     # Delete the "ssl-redirect" annotations in "expose.ingress.annotations" when TLS is disabled and "expose.type" is "ingress"
     # Note: if the "expose.type" is "ingress" and TLS is disabled,
     # the port must be included in the command when pulling/pushing images.
     # Refer to https://github.com/goharbor/harbor/issues/5291 for details.
-    enabled: true
+    enabled: false
     # The source of the tls certificate. Set as "auto", "secret"
     # or "none" and fill the information in the corresponding section
     # 1) auto: generate the tls certificate automatically
@@ -109,7 +109,7 @@ expose:
 # the IP address of k8s node
 #
 # If Harbor is deployed behind the proxy, set it as the URL of proxy
-externalURL: https://core.harbor.domain
+externalURL: https://harbor.blixbloc.com
 
 # The persistence is enabled by default and a default StorageClass
 # is needed in the k8s cluster to provision volumes dynamically.
@@ -119,7 +119,7 @@ externalURL: https://core.harbor.domain
 # For storing images and charts, you can also use "azure", "gcs", "s3",
 # "swift" or "oss". Set it in the "imageChartStorage" section
 persistence:
-  enabled: true
+  enabled: false
   # Setting it to "keep" to avoid removing PVCs during a helm delete
   # operation. Leaving it empty will delete PVCs after the chart deleted
   # (this does not apply for PVCs that are created for internal database
@@ -272,7 +272,7 @@ persistence:
 # key in secret is given via (default to HARBOR_ADMIN_PASSWORD)
 # existingSecretAdminPassword:
 existingSecretAdminPasswordKey: HARBOR_ADMIN_PASSWORD
-harborAdminPassword: "Harbor12345"
+harborAdminPassword: "iYtblEPYvBv0EgijgZQzjsIaLXfpcw227mvmmn035FipkKdss5E38OKV84vZImouRMmulmiGyjsFcCwJoEgQBcjx44eXb3XlWO2D"
 
 # The internal TLS used for harbor components secure communicating. In order to enable https
 # in each component tls cert files need to provided in advance.
@@ -350,7 +350,7 @@ updateStrategy:
   type: RollingUpdate
 
 # debug, info, warning, error or fatal
-logLevel: info
+logLevel: debug
 
 # The name of the secret which contains key named "ca.crt". Setting this enables the
 # download link on portal to download the CA certificate when the certificate isn't
@@ -954,7 +954,7 @@ database:
   # The maximum number of open connections to the database per pod (core+exporter).
   # If it <= 0, then there is no limit on the number of open connections.
   # Note: the default number of connections is 1024 for harbor's postgres.
-  maxOpenConns: 900
+  maxOpenConns: 1024
   ## Additional deployment annotations
   podAnnotations: {}
   ## Additional deployment labels
