@@ -3,10 +3,10 @@ entries:
   harbor:
   - apiVersion: v1
     appVersion: 2.12.1
-    created: "2025-01-15T09:08:29.452116015Z"
+    created: "2025-01-15T09:21:26.561142039Z"
     description: An open source trusted cloud native registry that stores, signs,
       and scans content
-    digest: 9c4c1e86bc1be42888d330712a4578897f2f761a8ee269e9fbd6384094cbc902
+    digest: aa785e555590ac9ea6c47c8d84c2859ddd19759a18b873c8392655cf32a5957b
     home: https://goharbor.io
     icon: https://raw.githubusercontent.com/goharbor/website/main/static/img/logos/harbor-icon-color.png
     keywords:
@@ -27,4 +27,4 @@ entries:
     urls:
     - harbor-1.16.1.tgz
     version: 1.16.1
-generated: "2025-01-15T09:08:29.444864781Z"
+generated: "2025-01-15T09:21:26.557531841Z"
